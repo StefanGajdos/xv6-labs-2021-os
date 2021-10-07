@@ -8,10 +8,7 @@ int main(int argc, char *argv[]){
     int l,m = 0;
     char block[32]; // Block = it should contain arguments of first command
     char buf[32]; // buf is for moving from bloc to split
-
-
-
-
+    
     char *p = buf;
     char *split[32]; // Split = it should contain arguments of xargs
 
