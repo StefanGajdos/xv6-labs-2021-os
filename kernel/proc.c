@@ -657,3 +657,21 @@ procdump(void)
     printf("\n");
   }
 }
+
+// Info about number of free "proccess"
+
+int
+nproc_info()
+{
+    int nproc = 0;
+    struct proc *p;
+
+    p = proc;
+
+    for(;p<&proc[NPROC];p++){
+        if(p->state != UNUSED){
+            nproc++;
+        }
+    }
+    return nproc;
+}
