@@ -1,0 +1,10 @@
+Ktoré iné systémové volania môžu byť urýchlené prostredníctvom tejto zdieľanej stránky? Vysvetlite ako.
+
+-Tie ktore nepotrebuju zapisovat - fork() alebo uptime().
+
+Vysvetlite výstup funkcie vmprint() a jeho súvis s obrázkom 3-4 z xv6 knižky. Čo obsahuje stránka 0? Čo je v stránke 2? Keď proces beží v užívateľskom móde, môže prečítať/zapísať pamäť mapovanú stránkou 1? Čo obsahuje tretia stránka od konca?
+
+-stranka 0 obsahuje program.
+-stranka 1 je "bariera", skratka user nema k nej access a nemoze teda precitat/zapisovat.
+-stranka 2 je zasobnik.
+-3 stranka od konca je 509-511 a je tam trapframe,trapoline a usyscallpage.
