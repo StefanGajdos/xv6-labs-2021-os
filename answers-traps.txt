@@ -1,0 +1,13 @@
+1. a0 obsahuje prve argumenty "%d %d\n"
+   a1 obsahuje hodnotu 12 vypocitanu a optimalizovanu kompilatorom f(8)+1
+   a2 ma ulozene cislo `13`
+
+2. neexistuje ziadne volaie funkcii f, kompilator optimalizuje funkciu
+
+3. 0x630
+
+4. 0x38
+
+5.HE110 World, i = 0x726c6400 a 57616 sa nezmeni
+
+6.zalezi na tom aka hodnota 'zostala' v a2
