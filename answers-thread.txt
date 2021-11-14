@@ -1,0 +1,7 @@
+-Ak mame 2 vlakna a ich postupnost je napr: vlakno1,vlakno2,vlakno1,vlakno2,vlakno1 .. -> tak
+ak sa pozrieme na "else" vo funkcii put(), uvedomime si ze vlakno2 (vstup) vzdy prepise vstup vlakna1 (insert(...)), co
+vo vysledku sposobi stratu klucov (ak su rozne) -> preto nam treba zamky na viacvlaknovy system.
+
+-Ak su kluce rovnake, tak samozrejme nestratime data -> netreba zamykanie.
+
+-Ak je vlakno jedno - nedochadza k prepisu dat jedneho vlakna druhym, cize netreba zamykanie a nestracame data.

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeSettings">
+    <configurations />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="81da8032-77a3-4e4a-b21d-00fa7459557a" name="Changes" comment="Commit just to fix IDE error of switchting branches">
+      <change beforePath="$PROJECT_DIR$/notxv6/barrier.c" beforeDir="false" afterPath="$PROJECT_DIR$/notxv6/barrier.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notxv6/ph.c" beforeDir="false" afterPath="$PROJECT_DIR$/notxv6/ph.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/uthread.c" beforeDir="false" afterPath="$PROJECT_DIR$/user/uthread.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/uthread_switch.S" beforeDir="false" afterPath="$PROJECT_DIR$/user/uthread_switch.S" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="TaskManager">
+    <task id="LOCAL-00001" summary="Commit just to fix IDE error of switchting branches">
+      <created>1636895913252</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1636895913252</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Commit just to fix IDE error of switchting branches" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commit just to fix IDE error of switchting branches" />
+  </component>
+</project>
