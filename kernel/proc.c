@@ -301,6 +301,12 @@ fork(void)
       np->ofile[i] = filedup(p->ofile[i]);
   np->cwd = idup(p->cwd);
 
+  for(int i = 0; i < MAXVMA; i++){
+      if(p->vma_table[i].mapped){
+          memmove(&np->vma_table[i], &p->vma_table[i], sizeof(struct vma));
+          filedup(np->vma_table[i].f);
+      }
+  }
   safestrcpy(np->name, p->name, sizeof(p->name));
 
   pid = np->pid;
@@ -352,6 +358,18 @@ exit(int status)
       p->ofile[fd] = 0;
     }
   }
+
+
+  struct vma *pvma;
+  for(int i = 0; i < MAXVMA; i++){
+      pvma = &p->vma_table[i];
+      if(pvma->mapped){
+          if(munmap(pvma->addr, pvma->len) < 0){
+              panic("exit munmap");
+          }
+      }
+  }
+
 
   begin_op();
   iput(p->cwd);

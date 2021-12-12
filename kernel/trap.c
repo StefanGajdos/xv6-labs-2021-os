@@ -5,6 +5,9 @@
 #include "spinlock.h"
 #include "proc.h"
 #include "defs.h"
+#include "sleeplock.h"
+#include "fs.h"
+#include "file.h"
 
 struct spinlock tickslock;
 uint ticks;
@@ -65,8 +68,48 @@ usertrap(void)
     intr_on();
 
     syscall();
+  } else if(r_scause() == 13 || r_scause() == 15){
+
+      uint64 va = r_stval();
+      int i = 0;
+      struct vma *pvma;
+
+      if((va >= p->sz) || (va < PGROUNDDOWN(p->trapframe->sp))){
+          p->killed = 1;
+      } else{
+          va = PGROUNDDOWN(va);
+
+          for(; i < MAXVMA; i++){
+              pvma = &p->vma_table[i];
+              if((va < (pvma->addr + pvma->len)) && pvma->mapped && (va >= pvma->addr) ){
+                  char *mem;
+                  mem = kalloc();
+
+                  if(mem == 0){
+                      p->killed = 1;
+                      break;
+                  }
+
+                  memset(mem, 0, PGSIZE);
+
+                  if(mappages(p->pagetable, va, PGSIZE, (uint64)mem, (pvma->prot << 1) | PTE_U) != 0){
+                      kfree(mem);
+                      p->killed = 1;
+                      break;
+                  }
+                  break;
+              }
+          }
+      }
+
+      if(p->killed != 1 && i <= MAXVMA){
+          ilock(pvma->f->ip);
+          readi(pvma->f->ip, 1, va, va - pvma->addr, PGSIZE);
+          iunlock(pvma->f->ip);
+      }
+
   } else if((which_dev = devintr()) != 0){
-    // ok
+      // ok
   } else {
     printf("usertrap(): unexpected scause %p pid=%d\n", r_scause(), p->pid);
     printf("            sepc=%p stval=%p\n", r_sepc(), r_stval());
